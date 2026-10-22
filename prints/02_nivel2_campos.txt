@@ -1,0 +1,8 @@
+$ echo "4-log linux completo:"; echo "Mar 10 10:15:32 server sshd[1234]: Failed password for root from 192.168.0.50 port 22 ssh2" | grep -oP "^(\w+\s+\d+\s+[\d:]+)\s+(\w+).*?(Failed password).*?for\s+(?:invalid user\s+)?(\w+)\s+from\s+(\d+\.\d+\.\d+\.\d+)" ; echo "5-HTTP erro:"; echo "192.168.1.1 - - [10/Mar/2026:10:20:10] \"GET /login HTTP/1.1\" 401 512" | grep -oP "(\d+\.\d+\.\d+\.\d+).*?\"(\w+)\s+(\S+).*?\"\s+(\d{3})"; echo "6-email+status:"; echo "User login attempt: email=admin@test.com status=failed" | grep -oP "email=\K[\w.@-]+|status=\K\w+"
+4-log linux completo:
+Mar 10 10:15:32 server sshd[1234]: Failed password for root from 192.168.0.50
+5-HTTP erro:
+192.168.1.1 - - [10/Mar/2026:10:20:10] "GET /login HTTP/1.1" 401
+6-email+status:
+admin@test.com
+failed

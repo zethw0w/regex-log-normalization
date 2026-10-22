@@ -1,0 +1,7 @@
+$ echo "1-IP:"; echo "Failed password for invalid user admin from 192.168.1.10 port 22 ssh2" | grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}"; echo "2-usuario:"; echo "Accepted password for joao from 10.0.0.5 port 443 ssh2" | grep -oP "for \K\w+"; echo "3-porta:"; echo "Connection from 172.16.0.3 port 8080" | grep -oP "port \K\d+"
+1-IP:
+192.168.1.10
+2-usuario:
+joao
+3-porta:
+8080

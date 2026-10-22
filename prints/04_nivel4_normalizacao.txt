@@ -1,0 +1,6 @@
+$ echo "10-SSH normalizado:"; echo "Failed password for invalid user admin from 192.168.1.10 port 22 ssh2" | sed -E "s/.*for (invalid user )?([a-z]+) from ([0-9.]+).*/src_ip=\3 user=\2 action=login status=failed/"; echo "12-multiplos:"; printf "Accepted password for joao from 10.0.0.5\nFailed password for root from 10.0.0.8\n" | sed -E "s/(Accepted) password for ([a-z]+) from ([0-9.]+)/src_ip=\3 user=\2 action=login status=success/; s/(Failed) password for ([a-z]+) from ([0-9.]+)/src_ip=\3 user=\2 action=login status=failed/"
+10-SSH normalizado:
+src_ip=192.168.1.10 user=admin action=login status=failed
+12-multiplos:
+src_ip=10.0.0.5 user=joao action=login status=success
+src_ip=10.0.0.8 user=root action=login status=failed

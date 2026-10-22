@@ -1,0 +1,9 @@
+$ echo "7-usuario com/sem invalid:"; printf "Failed password for invalid user admin from 10.0.0.1\nFailed password for root from 10.0.0.2\n" | grep -oP "for\s+(?:invalid user\s+)?\K\w+"; echo "8-IPv4+IPv6:"; printf "Login from 192.168.1.1\nLogin from fe80::1ff:fe23:4567:890a\n" | grep -oP "from \K([0-9.]+|[a-fA-F0-9:]+)"; echo "9-SO no user-agent:"; echo "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" | grep -oP "\(\K[^;]+"
+7-usuario com/sem invalid:
+admin
+root
+8-IPv4+IPv6:
+192.168.1.1
+fe80::1ff:fe23:4567:890a
+9-SO no user-agent:
+Windows NT 10.0
